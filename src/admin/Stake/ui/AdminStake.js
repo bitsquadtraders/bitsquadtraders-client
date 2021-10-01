@@ -65,7 +65,7 @@ const Admin = () => {
       if (willGet) {
         axios({
           method: 'get',
-          url: `https://bitsquadtraders-client.herokuapp.com/api/v1/otherwallets/${stakeId}`,
+          url: `https://bitsquadtraders-api.herokuapp.com/api/v1/otherwallets/${stakeId}`,
           headers: headers.headers
         })
           .then((response) => {

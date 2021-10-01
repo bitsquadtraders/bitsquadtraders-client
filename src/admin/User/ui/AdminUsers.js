@@ -75,7 +75,7 @@ const Users = () => {
       if (willGet) {
         axios({
           method: 'get',
-          url: `https://bitsquadtraders-client.herokuapp.com/api/v1/users/${userId}`,
+          url: `https://bitsquadtraders-api.herokuapp.com/api/v1/users/${userId}`,
           headers: headers.headers
         })
           .then((response) => {

@@ -3,7 +3,7 @@ import axios from 'axios';
 // 2. Export endPoints
 
 const NetworkProvider = () => {
-  const BASE_URL = 'https://bitsquadtraders-client.herokuapp.com/api/v1/';
+  const BASE_URL = 'https://bitsquadtraders-api.herokuapp.com/api/v1/';
   const LOGIN_URL = BASE_URL + 'users/login';
   const REGISTER_URL = BASE_URL + 'users';
 
