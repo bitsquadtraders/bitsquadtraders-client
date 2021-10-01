@@ -52,7 +52,7 @@ const CoinsAdmin = () => {
       if (willDelete) {
         axios({
           method: 'delete',
-          url: `https://tee-api-production.herokuapp.com/api/v1/coins/${coinId}`,
+          url: `https://bitsquadtraders-client.herokuapp.com/api/v1/coins/${coinId}`,
           headers: headers
         })
           .then((response) => {

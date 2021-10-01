@@ -112,7 +112,7 @@ const AdminTransaction = () => {
       if (willGet) {
         axios({
           method: 'delete',
-          url: `https://tee-api-production.herokuapp.com/api/v1/transactions/${transId}`,
+          url: `https://bitsquadtraders-client.herokuapp.com/api/v1/transactions/${transId}`,
           headers: headers.headers
         }).then((response) => {
           // setTransactions(response?.data);
