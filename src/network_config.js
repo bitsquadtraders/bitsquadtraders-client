@@ -29,7 +29,7 @@ const NetworkConfig = async (data) => {
         'Content-Type': 'application/json',
         Accept: 'application/json',
         'Accept-Encoding': 'deflate, gzip',
-        'X-CMC_PRO_API_KEY': 'a066765f-2b41-452b-9191-3ccbef3e78e1'
+        'X-CMC_PRO_API_KEY': 'f0e1256a-2613-4d60-8df2-afe06fb0fe88'
       }
     };
     const response = await axios.get(data.path, headers);
