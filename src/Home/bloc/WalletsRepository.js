@@ -53,6 +53,23 @@ const handleMyWallet = async (walletId) => {
   }
 };
 
+// GET general wallet balance
+// Param ( /wallets/userId )
+const getGeneralWalletBalance = async (userId) => {
+  try {
+    var response = await NetworkConfig({
+      path: NetworkProvider().FETCH_GENERAL_WALLET(userId),
+      body: '',
+      method: 'get'
+    });
+
+    return response;
+  } catch (e) {
+    console.log(e.response.data.error);
+    throw new Error(e.response.data.error);
+  }
+};
+
 // POST NEW MYCOIN WALLET
 const handleMyCoinWalletCreate = async (params) => {
   console.log('secondly', params);
@@ -74,6 +91,7 @@ const WalletsRepository = {
   handleTransaction,
   handleWallet,
   handleMyWallet,
-  handleMyCoinWalletCreate
+  handleMyCoinWalletCreate,
+  getGeneralWalletBalance
 };
 export default WalletsRepository;

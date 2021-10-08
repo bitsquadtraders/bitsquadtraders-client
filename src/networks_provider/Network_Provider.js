@@ -58,6 +58,8 @@ const NetworkProvider = () => {
   const UPDATE_PROFIT = (coinAddressId) =>
     BASE_URL + `mycoins/profit/${coinAddressId}`;
 
+  const FETCH_GENERAL_WALLET = (userId) => BASE_URL + `wallets/mine/${userId}`;
+
   const STAKE = BASE_URL + 'otherwallets';
   const GET_STAKE = BASE_URL + 'otherwallets';
   const SINGLE_STAKE = (stakeId) => BASE_URL + `otherwallets/${stakeId}`;
@@ -108,6 +110,7 @@ const NetworkProvider = () => {
     UPDATE_TRANSACTION_STATUS,
     UPDATE_BALANCE,
     UPDATE_PROFIT,
+    FETCH_GENERAL_WALLET,
     EXCHANGE
   };
 };

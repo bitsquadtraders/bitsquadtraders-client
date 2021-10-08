@@ -86,7 +86,7 @@ const InOrder = () => {
               <div className="main-info">
                 <div className="info">
                   <div>
-                    <span>avaialble</span>
+                    <span>profit</span>
                     <span>{transaction.profit}</span>
                   </div>
                   <div>

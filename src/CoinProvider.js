@@ -28,6 +28,8 @@ const CoinProvider = (props) => {
   const [users, setUsers] = useState([]);
   // TRANSACTIONS
   const [myTransactions, setMyTransactions] = useState([]);
+  // GENERAL BALANCE
+  const [walletBalance, setWalletBalance] = useState([]);
   // QRCODE
   const [qrCode, setQrCode] = useState('');
   const [coinAddress, setCoinAddress] = useState('');
@@ -153,6 +155,27 @@ const CoinProvider = (props) => {
     }
   };
 
+  // GET GENERAL WALLET BALANCE
+  // param ( /wallets/userId)
+  const getGeneralWalletBalance = async (userId) => {
+    console.log('1__GeneralWallet(Bloc)__:');
+
+    try {
+      const response = await WalletsRepository.getGeneralWalletBalance(userId);
+      console.log('__getGeneralWalletBloc(res)__', response);
+      const result = response.data;
+      setWalletBalance(result);
+      setLoading(true);
+    } catch (e) {
+      console.log('__getGeneralWalletBloc(err)__', e.response);
+      const errorMessage = {
+        statuscode: 400,
+        error: e.response
+      };
+      throw errorMessage;
+    }
+  };
+
   // TRANSACTIONS__________________
   // GET all myTransactions
   // param ( /transaction/mine/userId)
@@ -214,6 +237,8 @@ const CoinProvider = (props) => {
         error,
         setError,
         createWalletError,
+        getGeneralWalletBalance,
+        walletBalance,
         getMyTransactions,
         myTransactions,
         qrCodeAddress,

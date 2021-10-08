@@ -20,7 +20,8 @@ const Dashboard = () => {
   const history = useHistory();
   const [loader, setLoader] = useState(false);
   const [pageLoader, setPageLoader] = useState(true);
-  const { getUser } = useContext(CoinContext);
+  const { getUser, getGeneralWalletBalance, walletBalance } =
+    useContext(CoinContext);
 
   // FIX
   // const [fetcher] = useRequest();
@@ -28,18 +29,21 @@ const Dashboard = () => {
   //   fetcher(id);
   // }, []);
 
+  const userId = localStorage.getItem('userId');
+  console.log('userIDDDD', userId);
   useEffect(() => {
     // const flow = async () => {
     cryptoWidget();
     cryptoWidget2();
     getUser();
+    getGeneralWalletBalance(userId);
     setLoader(true);
     // };
     // flow();
 
     // eslint-disable-next-line
   }, []);
-
+  console.log('GENERAL WALLET OBJ', walletBalance);
   const cryptoWidget = async () => {
     const script = document.createElement('script');
     script.src =
@@ -116,19 +120,19 @@ const Dashboard = () => {
           <div className="boards">
             <div style={{ cursor: 'wait' }} className="overview">
               <Svg8 />
-              <h2>0.00</h2>
+              <h2>{walletBalance.balance}</h2>
               <div id="design">
                 <h4>Wallet Balance</h4>
-                <p>+0.00</p>
+                <p>+{walletBalance.profit}</p>
                 <Svg9 />
               </div>
             </div>
             <div style={{ cursor: 'wait' }} className="overview">
               <Svg8 />
-              <h2>0.00</h2>
+              <h2>{walletBalance.profit}</h2>
               <div id="design">
                 <h4>Last Profit</h4>
-                <p>+0.00</p>
+                {/* <p>+{walletBalance.profit}</p> */}
                 <Svg9 />
               </div>
             </div>
