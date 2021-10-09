@@ -21,7 +21,7 @@ const NavBar = () => {
           <i className="fa fa-bars" />
         </label>
         <div className="logo">
-          <Link to="#">
+          <Link to="/">
             <img src={Logo} alt="logo" />
             <h5>bitsquadtraders</h5>
           </Link>

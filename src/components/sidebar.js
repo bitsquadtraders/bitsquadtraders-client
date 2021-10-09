@@ -18,7 +18,7 @@ const SideBar = () => {
           <NavLink to="/coins" activeClassName="active">
             <Svg2 />
             &nbsp;&nbsp;&nbsp;Coins
-            <p>10</p>
+            {/* <p>10</p> */}
           </NavLink>
           <NavLink to="/stake" activeClassName="active">
             <Svg3 />

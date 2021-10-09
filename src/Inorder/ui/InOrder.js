@@ -79,17 +79,18 @@ const InOrder = () => {
             <h3>{transaction.coin.name}</h3>
             <div className="row-two">
               <div className="total">
-                <h4>total</h4>
+                <h4>Total</h4>
                 <p>{transaction.balance}</p>
               </div>
               <div className="main-info">
                 <div className="info">
                   <div>
-                    <span>profit</span>
-                    <span>{transaction.profit}</span>
+                    <span>Available</span>
+                    <span>{transaction.balance}</span>
+                    {/* <span>{transaction.profit}</span> */}
                   </div>
                   <div>
-                    <span>in order</span>
+                    <span>In order</span>
                     <span>{transaction.order}</span>
                   </div>
                 </div>
