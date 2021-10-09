@@ -5,7 +5,7 @@ import NotFound from '../../static/images/not-found.gif';
 const PageLoad = () => {
   return (
     <div className="bg-body">
-      <img src={NotFound} />
+      <img src={NotFound} alt="dash" />
       <Link to="/dashboard" className="pageload-btn">
         Back To Home Page
       </Link>

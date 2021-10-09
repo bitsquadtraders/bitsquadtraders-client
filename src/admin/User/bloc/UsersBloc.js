@@ -2,11 +2,8 @@ import UsersRepository from './UsersRepository';
 
 // GET ALL USERS
 const allUsers = async () => {
-  console.log('usersBloc firstly data :');
-
   try {
     const response = await UsersRepository.getAllUsers();
-    console.log('users from bloc', response);
 
     if (response.status === 200) {
       response.success = true;
@@ -17,11 +14,8 @@ const allUsers = async () => {
 
 // GET ALL USERS
 const oneUser = async () => {
-  console.log('usersBloc firstly data :');
-
   try {
     const response = await UsersRepository.getOneUser();
-    console.log('users from bloc', response);
 
     if (response.status === 200) {
       response.success = true;

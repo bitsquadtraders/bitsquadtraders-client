@@ -87,7 +87,7 @@
 /* paginate */
 .page-page {
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   width: 600px;
 }
 

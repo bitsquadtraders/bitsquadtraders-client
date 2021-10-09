@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useHistory, Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 import { CoinContext } from '../../CoinProvider';
 // import useRequest from '../bloc/useRequest'; //FIX
@@ -19,7 +19,6 @@ import '../../static/css/dashboard.css';
 const Dashboard = () => {
   const history = useHistory();
   const [loader, setLoader] = useState(false);
-  const [pageLoader, setPageLoader] = useState(true);
   const { getUser, getGeneralWalletBalance, walletBalance } =
     useContext(CoinContext);
 
@@ -30,7 +29,7 @@ const Dashboard = () => {
   // }, []);
 
   const userId = localStorage.getItem('userId');
-  console.log('userIDDDD', userId);
+
   useEffect(() => {
     // const flow = async () => {
     cryptoWidget();
@@ -43,7 +42,7 @@ const Dashboard = () => {
 
     // eslint-disable-next-line
   }, []);
-  console.log('GENERAL WALLET OBJ', walletBalance);
+
   const cryptoWidget = async () => {
     const script = document.createElement('script');
     script.src =

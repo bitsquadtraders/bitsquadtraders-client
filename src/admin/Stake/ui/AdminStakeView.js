@@ -20,7 +20,7 @@ const AdminStakeView = ({ modalStake }) => {
     eleven,
     twelve
   } = modalStake;
-  console.log('inside modal', modalStake);
+
   return (
     <>
       <div>

@@ -39,10 +39,10 @@ const Withdraw = () => {
   const userId = window.localStorage.getItem('userId');
   // const walletId = window.localStorage.getItem('walletId');
 
-  // CONSOLE LOG
-  // console.log('userId ===', userId);
-  // console.log('coinId ===', coinId);
-  // console.log('walletId ===', walletId);
+  //
+  //
+  //
+  //
 
   // MOUNT MYCOIN
   useEffect(() => {
@@ -87,16 +87,13 @@ const Withdraw = () => {
         // history.push('/credentials');
         setWithdrawLoader(false);
         setWithdrawError(e.error);
-        console.log('__withdrawUi(err)', e);
       }
     } finally {
-      console.log('__finally(withdraw)__');
     }
   };
 
   // COIN IMG
   const coinImg = myCoin.map((item, index) => item.icon);
-  console.log(' out side mycoin :', coinImg[0]);
 
   return (
     <>

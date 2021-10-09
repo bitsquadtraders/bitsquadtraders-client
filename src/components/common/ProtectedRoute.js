@@ -3,7 +3,7 @@ import { Route, Redirect } from 'react-router-dom';
 
 const ProtectedRoute = ({ path, component: Component, render, ...rest }) => {
   const auth = window.localStorage.getItem('userLevel');
-  console.log('__users from protectR', auth);
+
   return (
     <Route
       {...rest}

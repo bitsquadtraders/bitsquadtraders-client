@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import Joi from "joi-browser";
-import Input from "./input";
+import React, { Component } from 'react';
+import Joi from 'joi-browser';
+import Input from './input';
 // import Select from "./select";
 
 class Form extends Component {
   state = {
     data: {},
-    errors: {},
+    errors: {}
   };
 
   validate = () => {
@@ -30,7 +30,7 @@ class Form extends Component {
     e.preventDefault();
 
     const errors = this.validate();
-    console.log("handleSubmit", errors);
+
     this.setState({ errors: errors || {} });
     if (errors) return;
 
@@ -71,7 +71,7 @@ class Form extends Component {
     );
   }
 
-  renderInput(name, label, type = "text", classs, placeholder = name) {
+  renderInput(name, label, type = 'text', classs, placeholder = name) {
     const { data, errors } = this.state;
 
     return (

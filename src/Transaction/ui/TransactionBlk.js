@@ -19,13 +19,11 @@ const Transaction = () => {
       const isTransaction = await TransactionsRepository.getMyTransactions(
         userId
       );
-      console.log('__isTransactionUi(res)__', isTransaction);
+
       setMyTransactions(isTransaction);
     };
     getMyTrans();
   }, []);
-
-  console.log('__isTransactionUiOUTSIDE(res)__', myTransactions);
 
   return (
     <>

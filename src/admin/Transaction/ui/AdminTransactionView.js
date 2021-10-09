@@ -30,29 +30,25 @@ const AdminTransactionView = ({ transactionWallet, transactionMyCoin }) => {
   // BALANCE FORM
   const onBalanceForm = async (e) => {
     e.preventDefault();
-    console.log('balance', updateBalance);
-    console.log('subtract state', subtract);
+
     setBalanceLoader(true);
 
     if (subtract === true) {
       var sub = '?subtract=true';
       setSubValue('?subtract=true');
-      console.log('1__subtract', sub);
     } else {
       var sub = '?';
       setSubValue('?');
-      console.log('2__subtract', sub);
     }
-    console.log('OOUUTTSSIIDDEE__subtract', sub);
+
     try {
       const isBalance = await TransactionsBloc.updateBalance(
         coinAddressId,
         sub,
         updateBalance
       );
-      console.log('__isBalanceUi(res)__', isBalance);
+
       if (isBalance.status === 200) {
-        console.log('__isBalanceSuccessUi(res)__', isBalance);
         Swal.fire({
           icon: 'success',
           text: 'Balance Updated',
@@ -66,10 +62,8 @@ const AdminTransactionView = ({ transactionWallet, transactionMyCoin }) => {
         // }, 2000);
       }
     } catch (e) {
-      console.log('__balanceUi(err)__', e);
       setBalanceLoader(false);
       if (e.statuscode === 400) {
-        console.log('__errrrrr__', e.error.data?.error);
         setBalanceError(e.error.data?.error);
       }
     }
@@ -78,7 +72,7 @@ const AdminTransactionView = ({ transactionWallet, transactionMyCoin }) => {
   // PROFIT FORM
   const onProfitForm = async (e) => {
     e.preventDefault();
-    console.log('profit', updateProfit);
+
     setProfitLoader(true);
 
     try {
@@ -86,9 +80,8 @@ const AdminTransactionView = ({ transactionWallet, transactionMyCoin }) => {
         coinAddressId,
         updateProfit
       );
-      console.log('__isProfitUi(res)__', isProfit);
+
       if (isProfit.status === 200) {
-        console.log('__isProfitSuccessUi(res)__', isProfit);
         Swal.fire({
           icon: 'success',
           text: 'Profit Updated',
@@ -102,10 +95,8 @@ const AdminTransactionView = ({ transactionWallet, transactionMyCoin }) => {
         }, 2000);
       }
     } catch (e) {
-      console.log('__isProfitUi(err)__', e);
       setProfitLoader(false);
       if (e.statuscode === 400) {
-        console.log('__errrrrr__', e.error.data?.error);
         setProfitError(e.error.data?.error);
       }
     }
@@ -114,7 +105,7 @@ const AdminTransactionView = ({ transactionWallet, transactionMyCoin }) => {
   // STATUS FORM
   const onStatusForm = async (e) => {
     e.preventDefault();
-    console.log('status', updateStatus);
+
     setStatusLoader(true);
 
     try {
@@ -122,9 +113,8 @@ const AdminTransactionView = ({ transactionWallet, transactionMyCoin }) => {
         walletId,
         updateStatus
       );
-      console.log('__isStatusUi(res)__', isStatus);
+
       if (isStatus.status === 200) {
-        console.log('__isStatusSuccessUi(res)__', isStatus);
         Swal.fire({
           icon: 'success',
           title: 'Status Updated',
@@ -137,7 +127,6 @@ const AdminTransactionView = ({ transactionWallet, transactionMyCoin }) => {
         }, 2000);
       }
     } catch (e) {
-      console.log('__statusUi(err)__', e);
       setStatusLoader(false);
       if (e.statuscode === 400) {
         setStatusError('Select a Status');
@@ -146,20 +135,16 @@ const AdminTransactionView = ({ transactionWallet, transactionMyCoin }) => {
   };
 
   const { balance, order, profit, coin, owner } = transactionMyCoin;
-  console.log('__balance is coin balance__', balance);
-  console.log('__order is inorder__', order);
-  console.log('__profit__', profit);
-  console.log('__coin__', coin?.name);
+
   const { amount, _id, coinAddress, walletAddress } = transactionWallet;
-  console.log('__amount is inorder__', amount);
-  console.log('__coinAddress is coin balance__', coinAddress?.balance);
+
   const coinAddressId = coinAddress?._id;
   let walletId = _id;
-  console.log('__coinAddressIdNEW__', coinAddressId);
+
   // setCoinAddressIdState(coinAddressId);
-  // console.log('__walletId__', _id);
-  // console.log('__coinWallectId__', walletId);
-  // console.log('__coinAddressIdState__', coinAddressIdState);
+  //
+  //
+  //
 
   return (
     <div>

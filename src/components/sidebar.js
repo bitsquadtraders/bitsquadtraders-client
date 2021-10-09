@@ -7,10 +7,6 @@ import { ReactComponent as Svg4 } from '../static/images/sidenav-icons/reuse.svg
 import { ReactComponent as Svg5 } from '../static/images/sidenav-icons/Group8.1.svg';
 
 const SideBar = () => {
-  const handleLogout = () => {
-    window.localStorage.clear();
-    window.location.reload();
-  };
   return (
     <>
       <aside>

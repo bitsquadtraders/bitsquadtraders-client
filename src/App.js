@@ -66,8 +66,6 @@ const App = () => {
     // }, 1000000);
   }, []);
 
-  console.log('app userLevel', window.localStorage.getItem('twk_token'));
-  const slug = window.localStorage.getItem('twk_token');
   return (
     <BrowserRouter>
       <Switch>

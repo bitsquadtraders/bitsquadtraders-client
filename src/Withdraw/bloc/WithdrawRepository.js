@@ -7,17 +7,15 @@ import NetworkConfig from '../../network_config';
 
 // POST DEPOSIT
 const createWithdraw = async (params) => {
-  console.log('2__WithdrawCreate(Repo)__', params);
   try {
     var response = await NetworkConfig({
       path: NetworkProvider().WITHDRAW_TRANSACTION,
       body: params,
       method: 'post'
     });
-    console.log(response);
+
     return response;
   } catch (e) {
-    console.error(e);
     throw new Error(e.response.data.error);
   }
 };

@@ -42,7 +42,6 @@ const AdminCoinsCreate = () => {
       });
       history.push('/admin-coins');
     }
-    console.log('clicked!!');
   };
 
   return (

@@ -21,7 +21,7 @@ const Change_Password = () => {
     const userId = window.localStorage.getItem('userId');
     try {
       const isChangePassword = await doSubmit(userId, password, oldPassword);
-      console.log('__isChangePasswordUi(res)__', isChangePassword);
+
       if (isChangePassword) {
         setSuccess(!success);
         Swal.fire({
@@ -37,7 +37,6 @@ const Change_Password = () => {
           return window.location.reload();
         }, 4000);
         // );
-        console.log('changed submitted!!');
       }
 
       setSuccess(!success);
@@ -51,9 +50,8 @@ const Change_Password = () => {
           width: '50em'
         });
         setError(e.error.data?.error);
-        console.log('__changepasswordCreateUi(err)__', e);
       }
-      // console.log(
+      //
       //   '__changepasswordCreateUiOUTSIDE(err)__"',
       //   e.error.data?.error
       // );

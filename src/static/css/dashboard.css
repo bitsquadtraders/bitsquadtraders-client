@@ -186,7 +186,7 @@ td .fa {
   .wallet button {
     width: 200px;
     margin: 15px;
-    align-self: start;
+    align-self: flex-start;
     transform: translateY(0px);
   }
 }

@@ -14,7 +14,6 @@ import Loader from 'react-loader-spinner';
 
 const AdminTransaction = () => {
   let [count, setCount] = useState(1);
-  const [pagination, setPagination] = useState([]);
   const [loading, setLoading] = useState(false);
   const [transactions, setTransactions] = useState([]);
   const [transactionWallet, setTransactionWallet] = useState([]);
@@ -28,9 +27,8 @@ const AdminTransaction = () => {
 
   // ALL TRANSACTIONS
   const allTransactions = async (count) => {
-    console.log('__count__', count);
     const isTransactions = await TransactionsBloc.getAllTransactions(count);
-    console.log('__allTransactionsUi__', isTransactions);
+
     setTransactions(isTransactions.data.docs);
     setLoading(true);
   };
@@ -42,34 +40,33 @@ const AdminTransaction = () => {
     const isTransactionWallet = await TransactionsBloc.getOneTransactionWallet(
       walletId
     );
-    console.log('__oneTransactionsWalletUi__', isTransactionWallet);
+
     setTransactionWallet(isTransactionWallet.data);
 
-    console.log('+coinAddressId', coinAddressId);
     const isTransactionMyCoin = await TransactionsBloc.getOneTransactionMyCoin(
       coinAddressId
     );
-    console.log('__oneTransactionsMyCoinUi__', isTransactionMyCoin);
+
     setTransactionMyCoin(isTransactionMyCoin.data);
   };
 
-  // console.log('==TRANSACTIONS==', transactions);
-  // console.log('==WALLET==', transactionWallet);
-  // console.log('==MYCOIN==', transactionMyCoin);
-  // console.log('==COINADDRESSID==', coinAddressId);
-  // console.log('==WALLETID==', walletId);
+  //
+  //
+  //
+  //
+  //
 
   // EDIT TRANSACTION MODAL
   const modalPop = (ids) => async () => {
     // GET ID's FROM TRANSACTION TABLE
-    // console.log('__walletId&&coinAddress__', ids);
+    //
     const walletIdcoinAddressId = ids.split('/');
-    // console.log('__walletId&&coinAddressNEW__', walletIdcoinAddressId);
+    //
     let [walletId, coinAddressId] = walletIdcoinAddressId;
     setCoinAddressId(coinAddressId);
     setWalletId(walletId);
-    // console.log('__walletId__', walletId);
-    // console.log('__coinAddressId__', coinAddressId);
+    //
+    //
     oneTransaction_Wallet_MyCoin(ids);
 
     // CALL MODAL
@@ -92,7 +89,6 @@ const AdminTransaction = () => {
 
   // DELETE TRANSACTION
   const handleDelete = (transId) => async () => {
-    console.log('clicked');
     // DEFINE HEADER
     var token = window.localStorage.getItem('token') || [];
     const headers = {
@@ -116,7 +112,7 @@ const AdminTransaction = () => {
           headers: headers.headers
         }).then((response) => {
           // setTransactions(response?.data);
-          console.log('data response', response);
+
           if (response.status === 200) {
             Swal.fire(' Transaction has been deleted!', {
               icon: 'success',
@@ -150,7 +146,7 @@ const AdminTransaction = () => {
     setLoading(false);
     count += 1;
     setCount(count);
-    console.log('__countIncrement__', count);
+
     allTransactions(count);
   };
 
@@ -158,11 +154,10 @@ const AdminTransaction = () => {
     setLoading(false);
     count -= 1;
     setCount(count);
-    console.log('__countDecrement__', count);
+
     allTransactions(count);
   };
 
-  console.log('__OUTSIDE', transactions);
   return (
     <>
       <NavBar />

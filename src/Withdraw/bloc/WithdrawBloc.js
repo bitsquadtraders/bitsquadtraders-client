@@ -1,8 +1,6 @@
 import WithdrawsRepository from './WithdrawRepository';
 
 const doSubmit = async (amount, userAddress, userId, walletId) => {
-  console.log('1__Withdrawbody(bloc)__:');
-
   const obj = {
     owner: userId,
     coinAddress: walletId,
@@ -13,7 +11,6 @@ const doSubmit = async (amount, userAddress, userId, walletId) => {
 
   try {
     const response = await WithdrawsRepository.createWithdraw(obj);
-    console.log(response);
 
     if (response.status === 200) {
       return true;

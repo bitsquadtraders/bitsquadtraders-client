@@ -17,7 +17,7 @@ const AdminCoinsEdit = () => {
   const history = useHistory();
   const coinId = history.location.pathname.split('/')[2];
 
-  const { oneCoin, fetchOneCoin } = useContext(CoinContext);
+  const { fetchOneCoin } = useContext(CoinContext);
 
   const [icon, setIcon] = useState('');
   const [name, setName] = useState('');
@@ -29,7 +29,6 @@ const AdminCoinsEdit = () => {
   useEffect(() => {
     fetchOneCoin(coinId); // eslint-disable-next-line
   }, []);
-  console.log('one coin', oneCoin);
 
   const onCoinsForm = async (e) => {
     e.preventDefault();
@@ -55,7 +54,6 @@ const AdminCoinsEdit = () => {
       });
       history.push('/admin-coins');
     }
-    console.log('clicked!!');
   };
 
   return (

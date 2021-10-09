@@ -7,7 +7,7 @@ import './adminUser.css';
 
 const AdminUserView = ({ modalUser }) => {
   const { name, phonenumber, email, address, photo, idCard } = modalUser;
-  console.log('inside modal', modalUser);
+
   return (
     <>
       <div>

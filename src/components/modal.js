@@ -8,7 +8,7 @@ import './modal.css';
 const Modal = ({ modalUser }) => {
   const [ame, setName] = useState('');
   const { name, phonenumber, email, address, photo, idCard } = modalUser;
-  console.log('inside modal', modalUser);
+
   return (
     <>
       <div>

@@ -5,9 +5,7 @@ const axios = require('axios');
 // 3. Define POST, GET, DELETE, UPDATE calls
 
 const NetworkConfig = async (data) => {
-  console.log('3__+++NetworkConfig+++__', data);
   var token = window.localStorage.getItem('token') || [];
-  console.log('++TOKEN++', token);
 
   const headers = {
     headers: {
@@ -33,7 +31,7 @@ const NetworkConfig = async (data) => {
       }
     };
     const response = await axios.get(data.path, headers);
-    console.log('EXCHANGE GET:', response);
+
     return response;
   }
 
@@ -46,7 +44,7 @@ const NetworkConfig = async (data) => {
       }
     };
     const response = await axios.post(data.path, data.body, headers);
-    console.log('IMAGE POST:', response);
+
     return response;
   }
 
@@ -59,7 +57,7 @@ const NetworkConfig = async (data) => {
       }
     };
     const response = await axios.put(data.path, data.body, headers);
-    console.log('TEXT PUT:', response);
+
     return response;
   }
 
@@ -72,7 +70,7 @@ const NetworkConfig = async (data) => {
       }
     };
     const response = await axios.post(data.path, data.body, headers);
-    console.log('TEXT POST:', response);
+
     return response;
   }
 
@@ -85,7 +83,7 @@ const NetworkConfig = async (data) => {
       }
     };
     const response = await axios.post(data.path, data.body, headers);
-    console.log('this POST:', response);
+
     return response;
   }
 
@@ -98,7 +96,7 @@ const NetworkConfig = async (data) => {
       }
     };
     const response = await axios.delete(data.path, data.body, headers);
-    console.log('this DELETE:', response);
+
     return response;
   }
 };

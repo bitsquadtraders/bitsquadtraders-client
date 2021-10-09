@@ -8,7 +8,7 @@ const Title = ({ title }) => {
   // CONTEXT
   const { user } = useContext(CoinContext);
 
-  // console.log('title user:', user[0]);
+  //
 
   return (
     <>

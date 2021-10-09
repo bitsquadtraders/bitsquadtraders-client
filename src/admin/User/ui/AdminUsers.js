@@ -18,8 +18,7 @@ import '../../../static/css/transaction.css';
 
 const Users = () => {
   const [modalUser, setModalUser] = useState({});
-  const { user, users, allUsers } = useContext(CoinContext);
-  console.log(user);
+  const { users, allUsers } = useContext(CoinContext);
 
   // GET ALL USERS LIST
   useEffect(() => {
@@ -29,14 +28,11 @@ const Users = () => {
 
   // FIX pass userId to modal popUp component
   // onClick of user, get userId
-  const singleUserId = (id) => async () => {
-    console.log('singleModal!!!pop', id);
-  };
+  const singleUserId = (id) => async () => {};
 
   // MODAL FUNC
   const modalPop = (id) => async () => {
     const userId = id;
-    console.log('modal!!!pop', userId);
 
     // history.push(`${history.location.pathname}/${userId}`);
 
@@ -80,7 +76,7 @@ const Users = () => {
         })
           .then((response) => {
             setModalUser(response?.data);
-            console.log('data response', response.data);
+
             if (response.status === 200) {
               Swal.fire({
                 icon: 'success',
@@ -121,9 +117,6 @@ const Users = () => {
       }
     };
   };
-
-  console.log('CONTEXT ALL users col', users);
-  console.log('MODAL single users col', modalUser);
 
   // FORMAT DATE
   const date = (data) => new Date().toISOString().slice(0, 10);

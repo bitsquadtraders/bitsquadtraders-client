@@ -1,16 +1,13 @@
 import React, { useState, useLayoutEffect } from 'react';
-import { useHistory, Link, Redirect } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import doSubmit from '../bloc/LoginBloc';
 
-import { Formik, Form, Field } from 'formik';
+import { Formik } from 'formik';
 import * as Yup from 'yup';
 import Swal from 'sweetalert2';
 
 import { ReactComponent as Svg12 } from '../../static/images/logo1.svg';
 import Logo from '../../static/images/nav-images/MaskGroup.png';
-// import LoaderSvg from '../../components/LoaderSvg';
-
-import PageLoad from './PageLoad';
 import Footer from '../../admin/components/Footer';
 
 import '../../static/css/navs.css';
@@ -18,7 +15,6 @@ import '../../static/css/auth.css';
 import '../../static/css/auth_overide.css';
 
 const Login = () => {
-  const history = useHistory();
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
 
@@ -26,18 +22,15 @@ const Login = () => {
   const [loader, setLoader] = useState(false);
 
   useLayoutEffect(() => {
-    console.log('layout');
     // return <PageLoad />;
   }, []);
 
   const handleSubmit = async (dataToSubmit) => {
-    console.log('login clicked!!');
     setLoader(true);
     try {
       const isLogin = await doSubmit(dataToSubmit);
-      console.log('__isLoginUi(res)__', isLogin);
+
       if (isLogin.status === 200) {
-        console.log('__isLoginSuccessUi(res)__', isLogin);
         Swal.fire({
           icon: 'success',
           text: 'Successful',
@@ -54,13 +47,12 @@ const Login = () => {
         // }, 2000);
       }
     } catch (e) {
-      console.log('__loginUi(err)__', e);
       setLoader(false);
       if (e.statuscode === 400) {
         const err1 = e?.error;
         const err2 = err1?.data;
         const err3 = err2?.error;
-        // console.log('__errrrrr__', e.error.data?.error);
+        //
         // setError(e.error.data?.error);
       }
     }
@@ -104,15 +96,13 @@ const Login = () => {
                 email: values.email,
                 password: values.password
               };
-              console.log(dataToSubmit);
+
               handleSubmit(dataToSubmit);
             }, 3000);
-            console.log(values);
           }}
         >
           {(props) => {
             const {
-              values,
               touched,
               errors,
               handleChange,

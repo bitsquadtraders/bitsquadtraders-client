@@ -18,8 +18,6 @@ import { ReactComponent as Copy } from '../../static/images/copy.svg';
 import ReactTooltip from 'react-tooltip';
 
 import Swal from 'sweetalert2';
-import axios from 'axios';
-import DepositsRepository from '../bloc/DepositRepository';
 
 // CALL TWO FUNC
 // 1. Post to transaction
@@ -35,9 +33,6 @@ const Deposit = () => {
   const [error, setError] = useState('');
   // Loader on Button
   const [depositLoader, setDepositLoader] = useState(false);
-
-  // Error States
-  const [depositError, setDepositError] = useState('');
 
   // CONTEXT
   const {
@@ -70,7 +65,7 @@ const Deposit = () => {
         window.localStorage.getItem('userId'),
         window.localStorage.getItem('walletId')
       );
-      console.log('__isDeopsitUi(res)__', isDeopsit);
+
       if (isDeopsit.status === 200) {
         setDepositLoader(false);
         Swal.fire({
@@ -81,18 +76,15 @@ const Deposit = () => {
           width: '50em',
           allowOutsideClick: false
         }).then(history.push(`/transaction`));
-
-        console.log('submitted!!');
       }
     } catch (e) {
       if (e.error.data.error === 'amount is required') {
         setDepositLoader(false);
         setError(e.error.data.error);
-        console.log('__depErrorOUTSIDE__', e.error.data.error);
       }
     }
-    console.log('__DepositCreateUi(err)__', e);
-    // console.log('__DepositCreateUi(err)__"', e.error.data.error);
+
+    //
     // history.push('/transaction');
   };
 
@@ -102,30 +94,23 @@ const Deposit = () => {
       const coinCryptoAbbr = singleCoin[0]?.coin.abbr;
       const amount = e.target.value;
 
-      console.log('__targetValue__', amount);
-      console.log('__targetAbbr__', coinCryptoAbbr);
       const data = await DepositBloc.getExchange({ coinCryptoAbbr, amount });
-      console.log(
-        '__dataInsideEffect__',
-        data.data.data.quote[`${coinCryptoAbbr}`].price
-      );
+
       const a = data.data.data?.quote;
-      console.log('a', a);
+
       const b = a[`${coinCryptoAbbr}`].price;
 
       function truncate(num, places) {
         return Math.trunc(num * Math.pow(10, places)) / Math.pow(10, places);
       }
-      console.log('b', truncate(b, 5));
+
       const c = truncate(b, 5);
 
       setCryptoValue(c);
-    } catch (e) {
-      console.log('__exchangeUi(err)__', e);
-    }
+    } catch (e) {}
   };
 
-  // console.log('__singleCoin_COIN___', singleCoin[0]?.coin);
+  //
 
   return (
     <>

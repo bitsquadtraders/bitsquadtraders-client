@@ -4,10 +4,8 @@
 import AuthsRepository from './AuthRepository';
 
 const doSubmit = async (data) => {
-  console.log('1__Register(Bloc)__:', data);
   try {
     const response = await AuthsRepository.authRegister(data);
-    console.log('__RegisterBloc(res)__', response);
 
     // SessionManager(response.data);
     if (response.status === 201) {
@@ -15,7 +13,6 @@ const doSubmit = async (data) => {
       return response;
     }
   } catch (e) {
-    console.log('__RegisterBloc(err)__', e.response);
     const errorMessage = {
       statuscode: 400,
       error: e.response

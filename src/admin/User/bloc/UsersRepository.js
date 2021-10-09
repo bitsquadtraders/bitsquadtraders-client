@@ -7,33 +7,27 @@ import NetworkConfig from '../../../network_config';
 
 // GET ALL USERS
 const getAllUsers = async (params) => {
-  console.log('2__UserGetAll(Repo)__:', params);
   try {
     var response = await NetworkConfig({
       path: NetworkProvider().ALL_USERS,
       body: '',
       method: 'get'
     });
-    console.log(response);
+
     return response;
-  } catch (e) {
-    console.error(e);
-  }
+  } catch (e) {}
 };
 
 const getOneUser = async (params) => {
-  console.log('2__UserGetOne(Repo)__:', params);
   try {
     var response = await NetworkConfig({
       path: NetworkProvider().GET_ONE_USER(params.userId),
       body: '',
       method: 'get'
     });
-    console.log(response);
+
     return response;
-  } catch (e) {
-    console.error(e);
-  }
+  } catch (e) {}
 };
 
 const UsersRepository = {

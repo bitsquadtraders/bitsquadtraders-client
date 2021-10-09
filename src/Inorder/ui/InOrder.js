@@ -54,7 +54,6 @@ const InOrder = () => {
       }
       // HANDLE ERROR
     } catch (e) {
-      console.log('3____walletUi(err)____', e);
       if (
         e.statuscode === 400 &&
         e.error.error === 'You already own this coin'
@@ -64,10 +63,10 @@ const InOrder = () => {
     }
   };
 
-  // console.log('create create wallet :', myCoinWallet);
-  // console.log('single single :', singleCoin);
-  // console.log('mine mine :', mineCoin);
-  // console.log('after: ', error);
+  //
+  //
+  //
+  //
 
   return (
     <>

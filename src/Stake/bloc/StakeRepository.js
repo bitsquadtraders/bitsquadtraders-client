@@ -7,34 +7,30 @@ import NetworkConfig from '../../network_config';
 
 // POST STAKE
 const createStake = async (params) => {
-  console.log('2__StakeCreate(Repo)__:', params);
   try {
     var response = await NetworkConfig({
       path: NetworkProvider().STAKE,
       body: params,
       method: 'post'
     });
-    console.log('__StakeCreate(Repo)__', response);
+
     return response;
   } catch (e) {
-    console.error('__createStakeRepo(err)__', e.response);
     throw e;
   }
 };
 
 // GET ALL STAKE
 const getAllStake = async () => {
-  console.log('2__StakeGetAll(Repo)__:');
   try {
     var response = await NetworkConfig({
       path: NetworkProvider().GET_STAKE,
       body: '',
       method: 'get'
     });
-    console.log('__StakeGetAll(Repo)__', response);
+
     return response;
   } catch (e) {
-    console.error('__getAllStakeRepo(err)__', e.response);
     throw e;
   }
 };

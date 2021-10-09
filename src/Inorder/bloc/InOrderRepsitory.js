@@ -7,18 +7,15 @@ import NetworkConfig from '../../network_config';
 
 // POST COIN WALLET
 const handleMyCoinWalletCreate = async (params) => {
-  console.log('secondly', params);
   try {
     var response = await NetworkConfig({
       path: NetworkProvider().CREATE_MYCOIN_WALLET,
       body: params,
       method: 'post'
     });
-    console.log(response);
+
     return response;
-  } catch (e) {
-    console.error(e);
-  }
+  } catch (e) {}
 };
 
 const InOrdersRepository = {

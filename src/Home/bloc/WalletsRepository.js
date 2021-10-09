@@ -4,7 +4,6 @@ import NetworkConfig from '../../network_config';
 // GET singleCoin transaction
 // Param ( /mycoins/mine/userId/coinId )
 const handleTransaction = async (userId, coinId) => {
-  console.log(userId, coinId);
   try {
     var response = await NetworkConfig({
       path: NetworkProvider().FETCH_COIN_ID(userId, coinId),
@@ -14,7 +13,6 @@ const handleTransaction = async (userId, coinId) => {
 
     return response;
   } catch (e) {
-    console.log(e.response.data.error);
     throw new Error(e.response.data.error);
   }
 };
@@ -31,7 +29,6 @@ const handleWallet = async (coinId) => {
 
     return response;
   } catch (e) {
-    console.log(e.response.data.error);
     throw new Error(e.response.data.error);
   }
 };
@@ -48,7 +45,6 @@ const handleMyWallet = async (walletId) => {
 
     return response;
   } catch (e) {
-    console.log(e.response.data.error);
     throw new Error(e.response.data.error);
   }
 };
@@ -65,24 +61,21 @@ const getGeneralWalletBalance = async (userId) => {
 
     return response;
   } catch (e) {
-    console.log(e.response.data.error);
     throw new Error(e.response.data.error);
   }
 };
 
 // POST NEW MYCOIN WALLET
 const handleMyCoinWalletCreate = async (params) => {
-  console.log('secondly', params);
   try {
     var response = await NetworkConfig({
       path: NetworkProvider().CREATE_MYCOIN_WALLET,
       body: params,
       method: 'post'
     });
-    console.log(response);
+
     return response;
   } catch (e) {
-    console.log('1____walletRepo_error(err)____', e.response.data);
     throw e;
   }
 };

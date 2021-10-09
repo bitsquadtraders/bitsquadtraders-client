@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { useHistory, Link } from 'react-router-dom';
 import doSubmit from '../bloc/UserBloc';
 
-import { Formik, Form, Field } from 'formik';
-import * as Yup from 'yup';
 import Swal from 'sweetalert2';
 
 import { ReactComponent as Svg12 } from '../../static/images/logo1.svg';
@@ -27,7 +25,7 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('register clicked!!');
+
     try {
       const isRegister = await doSubmit({
         name,
@@ -36,9 +34,8 @@ const Register = () => {
         password,
         address
       });
-      console.log('__isRegisterUi(res)__', isRegister);
+
       if (isRegister.status === 201) {
-        console.log('__isRegisterSuccessUi(res)__', isRegister.data.success);
         Swal.fire({
           icon: 'success',
           text: `${isRegister.data?.success}`,
@@ -52,8 +49,7 @@ const Register = () => {
         }, 2000);
       }
     } catch (e) {
-      console.log('__regUi(err)__', e);
-      // console.log('__regUi(err)__', e.error.data.error);
+      //
       if (e.statuscode === 400) {
         setError(e.error.data?.error);
       }

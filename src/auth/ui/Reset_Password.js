@@ -22,7 +22,7 @@ const Reset_Password = () => {
     e.preventDefault();
     try {
       const isResetPassword = await doSubmit(email);
-      console.log('__isResetPasswordUi(res)__', isResetPassword);
+
       if (isResetPassword) {
         setSuccess(!success);
         Swal.fire({
@@ -40,7 +40,6 @@ const Reset_Password = () => {
           window.location.reload();
         }, 4000);
         // );
-        console.log('Reset submitted!!');
       }
 
       setSuccess(!success);
@@ -54,9 +53,8 @@ const Reset_Password = () => {
           width: '50em'
         });
         setError(e.error.data?.error);
-        console.log('ResetpasswordCreateUi(err)__', e);
       }
-      // console.log(
+      //
       //   '__changepasswordCreateUiOUTSIDE(err)__"',
       //   e.error.data?.error
       // );

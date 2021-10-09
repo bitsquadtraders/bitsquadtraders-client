@@ -9,7 +9,6 @@ import Footer from '../../admin/components/Footer';
 const Alert = () => {
   const history = useHistory();
   const handleSubmit = () => {
-    console.log('___clicked(alert)___');
     history.push('/dashboard');
   };
   return (

@@ -1,5 +1,4 @@
 import React, { useEffect, useContext } from 'react';
-import { Link } from 'react-router-dom';
 import { CoinContext } from '../../CoinProvider';
 
 import Loader from 'react-loader-spinner';
@@ -7,9 +6,6 @@ import Loader from 'react-loader-spinner';
 const TransactionTable = () => {
   const { myTransactions, getMyTransactions, getUser, loading } =
     useContext(CoinContext);
-  const userId = localStorage.getItem('userId');
-  console.log('usrID', userId);
-  console.log('__isTransactionUiTABLE(res)__', myTransactions);
 
   useEffect(() => {
     trans(); // eslint-disable-next-line
@@ -21,7 +17,6 @@ const TransactionTable = () => {
     await getMyTransactions(userId);
   };
 
-  console.log('__isTransactionUiOUTSIDE(res)__', myTransactions);
   // FORMAT DATE
   const date = (data) => new Date().toISOString().slice(0, 10);
 

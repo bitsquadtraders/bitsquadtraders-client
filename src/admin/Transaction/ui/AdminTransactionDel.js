@@ -24,7 +24,7 @@ const AdminTransaction = () => {
 
   const allTransactions = async () => {
     const isTransactions = await TransactionsBloc.getAllTransactions();
-    console.log('__allTransactionsUi__', isTransactions);
+
     setTransactions(isTransactions.data);
     setLoading(true);
   };
@@ -35,31 +35,31 @@ const AdminTransaction = () => {
     const isTransactionWallet = await TransactionsBloc.getOneTransactionWallet(
       walletId
     );
-    console.log('__oneTransactionsWalletUi__', isTransactionWallet);
+
     setTransactionWallet(isTransactionWallet.data);
     const isTransactionMyCoin = await TransactionsBloc.getOneTransactionMyCoin(
       coinAddressId
     );
-    console.log('__oneTransactionsMyCoinUi__', isTransactionMyCoin);
+
     setTransactionMyCoin(isTransactionMyCoin.data);
   };
 
-  // console.log('==TRANSACTIONS==', transactions);
-  // console.log('==WALLET==', transactionWallet);
-  // console.log('==MYCOIN==', transactionMyCoin);
-  // console.log('==COINADDRESSID==', coinAddressId);
-  // console.log('==WALLETID==', walletId);
+  //
+  //
+  //
+  //
+  //
 
   const modalPop = (ids) => async () => {
     // GET ID's FROM TRANSACTION TABLE
-    // console.log('__walletId&&coinAddress__', ids);
+    //
     const walletIdcoinAddressId = ids.split('/');
-    // console.log('__walletId&&coinAddressNEW__', walletIdcoinAddressId);
+    //
     let [walletId, coinAddressId] = walletIdcoinAddressId;
     setCoinAddressId(coinAddressId);
     setWalletId(walletId);
-    // console.log('__walletId__', walletId);
-    // console.log('__coinAddressId__', coinAddressId);
+    //
+    //
     oneTransaction_Wallet_MyCoin(ids);
 
     // CALL MODAL
@@ -81,7 +81,6 @@ const AdminTransaction = () => {
   };
 
   const handleDelete = (transId) => async () => {
-    console.log('clicked');
     await Swal.fire({
       title: 'Are you sure?',
       text: 'Once deleted, you will not be able to recover this record!',
@@ -92,7 +91,6 @@ const AdminTransaction = () => {
 
     const isDeletTrans = await TransactionsBloc.deleteTrans(transId);
     if (isDeletTrans) {
-      console.log('deleteded!!');
       Swal.fire(' Your record has been deleted!', {
         icon: 'success',
         background: '#121007',

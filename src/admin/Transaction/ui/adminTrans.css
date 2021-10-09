@@ -125,7 +125,7 @@
     display: flex;
     flex-direction: column;
     width: 30em;
-    align-items: start;
+    align-items: flex-start;
   }
   .modal-content-trans .box2 {
     margin: 0em 5em 4em 0;
@@ -135,7 +135,7 @@
 @media screen and (max-width: 710px) {
   .modal-content-trans .select-form {
     width: 25em;
-    align-items: start;
+    align-items: flex-start;
   }
   .modal-content-trans .box2 {
     margin: 0em 5em 4em 1em;

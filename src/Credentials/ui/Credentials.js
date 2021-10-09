@@ -36,7 +36,7 @@ const Credentials = () => {
 
     try {
       const isCredentials = await CredentialsBloc.createImg(formData);
-      console.log('__createImgUi(res)__', isCredentials);
+
       if (isCredentials?.success) {
         const idCard = isCredentials.data.image;
         const userId = window.localStorage.getItem('userId');
@@ -63,17 +63,12 @@ const Credentials = () => {
             }).then(history.push(`/withdraw/${coinId}`));
           }
           // history.push('/withdraw');
-        } catch (e) {
-          console.log('__credTextUi__', e);
-          console.log('__credTextUi__', e.error.data.error);
-        }
+        } catch (e) {}
       }
       setCredentialsLoader(false);
     } catch (e) {
       setCredentialsLoader(false);
       setCredientialsError(e.error.data.error);
-      console.log('__credImgUi(err)__', e);
-      console.log('__credImgUi(err)__', e.error.data.error);
     }
   };
   return (

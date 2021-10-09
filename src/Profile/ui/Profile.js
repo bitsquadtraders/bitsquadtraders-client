@@ -38,7 +38,6 @@ const Profile = () => {
     return <div>Loading...</div>;
   }
 
-  console.log(user[0]);
   const onProfileForm = async (e) => {
     e.preventDefault();
     setProfileLoader(true);
@@ -69,13 +68,11 @@ const Profile = () => {
         });
         setProfileLoader(false);
 
-        console.log('isCred after after txt =:', isProfile);
         history.push('/dashboard');
       }
     } catch (e) {
       setProfileLoader(false);
       setProfileError(e.response.data.error);
-      console.log('__profileUi(err)', e.response.data.error);
     }
   };
   return (

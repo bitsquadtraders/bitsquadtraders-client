@@ -21,7 +21,7 @@ const CoinsAdmin = () => {
   useEffect(() => {
     fetchCoin();
     handleDelete();
-    console.log('__effectCoin');
+
     // eslint-disable-next-line
   }, []);
 
@@ -29,8 +29,6 @@ const CoinsAdmin = () => {
   // const coinId = coins[0]._id || window.localStorage.getItem('coinId');
 
   const handleDelete = (coinId) => async () => {
-    console.log('clicked!! dellete');
-
     try {
       await Swal.fire({
         title: 'Are you sure?',
@@ -42,9 +40,8 @@ const CoinsAdmin = () => {
         width: '50em'
       });
       const isDeleteCoin = await CoinsBloc.deleteText(coinId);
-      console.log('__isDeleteCoinUi(res)__', isDeleteCoin);
+
       if (isDeleteCoin) {
-        console.log('__isDeleteCoinSuccessUi(res)__', isDeleteCoin);
         Swal.fire(' Your record has been deleted!', {
           icon: 'success',
           background: '#121007',
@@ -60,9 +57,7 @@ const CoinsAdmin = () => {
           width: '50em'
         });
       }
-    } catch (e) {
-      console.log('__delUi(err)__', e);
-    }
+    } catch (e) {}
 
     // ________________________
     // Swal.fire({
@@ -75,7 +70,7 @@ const CoinsAdmin = () => {
     //   if (willDelete) {
     //     const response = CoinsBloc.deleteText(coinId);
     //     if (response) {
-    //       console.log('good res', response);
+    //
     //       Swal.fire(' Your record has been deleted!', {
     //         icon: 'success'
     //       });

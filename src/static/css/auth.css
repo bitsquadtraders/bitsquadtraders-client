@@ -27,7 +27,7 @@
 .main-form {
   margin: 1.5rem 0;
   display: flex;
-  align-self: flex-start;
+  align-self: flex-flex-start;
   flex-flow: column wrap;
   align-items: center;
   width: 100%;

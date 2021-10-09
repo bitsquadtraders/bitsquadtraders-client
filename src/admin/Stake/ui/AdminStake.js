@@ -16,7 +16,7 @@ const Admin = () => {
   useEffect(() => {
     const allStake = async () => {
       const isStake = await StakeBloc.getAllStake();
-      console.log('__isStakeUi(res)__', isStake);
+
       setStake(isStake);
     };
     allStake();
@@ -26,7 +26,6 @@ const Admin = () => {
   // MODAL FUNC
   const modalPop = (id) => async () => {
     const stakeId = id;
-    console.log('modal!!!pop stakeId', stakeId);
 
     // history.push(`${history.location.pathname}/${stakeId}`);
 
@@ -70,7 +69,7 @@ const Admin = () => {
         })
           .then((response) => {
             setModalStake(response?.data);
-            console.log('data response', response.data);
+
             if (response.status === 200) {
               Swal.fire({
                 icon: 'success',
@@ -111,9 +110,6 @@ const Admin = () => {
       }
     };
   };
-
-  console.log('MODAL single users col', modalStake);
-  console.log('__isStakeUiOUTSIDE(res)__', stake);
 
   // FORMAT DATE
   const date = (data) => new Date().toISOString().slice(0, 10);

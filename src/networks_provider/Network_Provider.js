@@ -1,4 +1,3 @@
-import axios from 'axios';
 // 1. Define all endPoints
 // 2. Export endPoints
 

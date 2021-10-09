@@ -84,7 +84,6 @@ const CoinProvider = (props) => {
       setOneCoin([response.data]);
     } catch (e) {
       setError(true);
-      console.log('error from SINGLE COIN', error);
     }
   };
 
@@ -103,7 +102,6 @@ const CoinProvider = (props) => {
       setSingleCoin([response.data]);
     } catch (e) {
       setError(true);
-      console.log('get myCoin error', error);
     }
   };
 
@@ -117,11 +115,11 @@ const CoinProvider = (props) => {
         owner: userId
       };
       const response = await WalletsRepository.handleMyCoinWalletCreate(obj);
-      console.log('CP__RES', response.data);
+
       setMyCoinWallet([response.data.success]);
     } catch (e) {
       setCreateWalletError(e.response.data);
-      console.log('2____walletBloc(err)____', e.response.data);
+
       const errorMessage = {
         statuscode: 400,
         error: e.response.data
@@ -139,7 +137,6 @@ const CoinProvider = (props) => {
       return response;
     } catch (e) {
       setError(true);
-      console.log('error from Coin', error);
     }
   };
 
@@ -151,23 +148,19 @@ const CoinProvider = (props) => {
       setMineCoin([response.data]);
     } catch (e) {
       setError(true);
-      console.log('error from MyCoin', error);
     }
   };
 
   // GET GENERAL WALLET BALANCE
   // param ( /wallets/userId)
   const getGeneralWalletBalance = async (userId) => {
-    console.log('1__GeneralWallet(Bloc)__:');
-
     try {
       const response = await WalletsRepository.getGeneralWalletBalance(userId);
-      console.log('__getGeneralWalletBloc(res)__', response);
+
       const result = response.data;
       setWalletBalance(result);
       setLoading(true);
     } catch (e) {
-      console.log('__getGeneralWalletBloc(err)__', e.response);
       const errorMessage = {
         statuscode: 400,
         error: e.response
@@ -181,16 +174,13 @@ const CoinProvider = (props) => {
   // param ( /transaction/mine/userId)
   // GET ALL MY TRANSACTIONS
   const getMyTransactions = async (userId) => {
-    console.log('1__TransactionGetMyAll(Bloc)__:');
-
     try {
       const response = await TransactionsRepository.getMyTransactions(userId);
-      console.log('__TransMyBloc(res)__', response);
+
       const result = response.data;
       setMyTransactions(result);
       setLoading(true);
     } catch (e) {
-      console.log('__getMyTransBloc(err)__', e.response);
       const errorMessage = {
         statuscode: 400,
         error: e.response
@@ -202,9 +192,9 @@ const CoinProvider = (props) => {
   // ADDRESS FROM 10 COINS ARRAY
   const qrCodeAddress = async (coinId) => {
     let myCoinRes = await getMyCoin(coinId);
-    console.log('__out side MYCOIN :', myCoinRes);
+
     const coinAddressNew = myCoinRes.data?.address;
-    console.log('__out side mycoin__ :', coinAddressNew);
+
     setCoinAddress(coinAddressNew);
 
     const qrCodeNew = `https://chart.googleapis.com/chart?chs=225x225&cht=qr&chl=${coinAddressNew[0]}&chld=L|0`;

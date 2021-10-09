@@ -43,14 +43,13 @@ const Stake = () => {
         ten,
         twelve
       });
-      console.log('__isStakeUi(res)__', isStake);
+
       if (isStake) {
         Swal.fire({
           icon: 'success',
           text: `${isStake.data.success}`,
           allowOutsideClick: false
         }).then(history.push(`/dashboard`));
-        console.log('submitted!!');
       }
     } catch (e) {
       Swal.fire({
@@ -60,8 +59,6 @@ const Stake = () => {
         background: '#121007',
         width: '50em'
       });
-      console.log('__stakeCreateUi(err)__', e);
-      console.log('__stakeCreateUi(err)__"', e.error.data.error);
     }
   };
   return (

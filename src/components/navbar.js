@@ -12,10 +12,8 @@ const NavBar = () => {
   useEffect(() => {
     getUser();
     // eslint-disable-next-line
-    console.log('__user(navbar)__', user);
   }, []);
 
-  console.log('__user(navbar)__', user);
   return (
     <>
       <header>
