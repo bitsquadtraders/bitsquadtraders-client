@@ -60,7 +60,7 @@ const Change_Password = () => {
     }
   };
 
-  const [selected, setSelected] = useState(false);
+  const [selected, setSelected] = useState(true);
   return (
     <>
       <NavBar />
