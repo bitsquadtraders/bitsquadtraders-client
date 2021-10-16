@@ -117,18 +117,26 @@ const Dashboard = () => {
 
         <section className="section-one">
           <div className="boards">
-            <div style={{ cursor: 'wait' }} className="overview">
+            <div
+              onMouseEnter={() => getGeneralWalletBalance(userId)}
+              style={{ cursor: 'wait' }}
+              className="overview"
+            >
               <Svg8 />
-              <h2>{walletBalance.balance}</h2>
+              <h2>{walletBalance.balance ?? '0.00'}</h2>
               <div id="design">
                 <h4>Wallet Balance</h4>
-                <p>+{walletBalance.profit}</p>
+                <p>+{walletBalance.profit ?? '0.00'}</p>
                 <Svg9 />
               </div>
             </div>
-            <div style={{ cursor: 'wait' }} className="overview">
+            <div
+              onMouseEnter={() => getGeneralWalletBalance(userId)}
+              style={{ cursor: 'wait' }}
+              className="overview"
+            >
               <Svg8 />
-              <h2>{walletBalance.profit}</h2>
+              <h2>{walletBalance.profit ?? '0.00'}</h2>
               <div id="design">
                 <h4>Last Profit</h4>
                 {/* <p>+{walletBalance.profit}</p> */}

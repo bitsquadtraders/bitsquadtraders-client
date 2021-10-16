@@ -7,19 +7,22 @@ import { ReactComponent as Svg4 } from '../static/images/sidenav-icons/reuse.svg
 import { ReactComponent as Svg5 } from '../static/images/sidenav-icons/Group8.1.svg';
 
 const SideBar = () => {
+  const reload = () => {
+    window.location.reload();
+  };
   return (
     <>
       <aside>
-        <nav>
+        <nav onClick={reload}>
           <NavLink to="/admin" activeClassName="active">
             <Svg1 />
             &nbsp;&nbsp;&nbsp;Dashboard
           </NavLink>
-          <NavLink to="/admin-stakes" activeClassName="active">
+          {/* <NavLink to="/admin-stakes" activeClassName="active">
             <Svg2 />
             &nbsp;&nbsp;&nbsp;Stake
             <p>100</p>
-          </NavLink>
+          </NavLink> */}
           <NavLink to="/admin-coins" activeClassName="active">
             <Svg3 />
             &nbsp;&nbsp;&nbsp;Coins
