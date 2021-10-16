@@ -7,6 +7,9 @@ import { ReactComponent as Svg4 } from '../static/images/sidenav-icons/reuse.svg
 import { ReactComponent as Svg5 } from '../static/images/sidenav-icons/Group8.1.svg';
 
 const SideBar = () => {
+  const reload = () => {
+    window.location.reload();
+  };
   const handleLogout = () => {
     window.localStorage.clear();
     window.location.reload();
@@ -14,7 +17,7 @@ const SideBar = () => {
   return (
     <>
       <aside>
-        <nav>
+        <nav onClick={reload}>
           <NavLink to="/admin" activeClassName="active">
             <Svg1 />
             &nbsp;&nbsp;&nbsp;Dashboard

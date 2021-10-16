@@ -27,10 +27,10 @@ const SideBar = () => {
             &nbsp;&nbsp;&nbsp;Coins
             {/* <p>10</p> */}
           </NavLink>
-          <NavLink to="/stake" activeClassName="active">
+          {/* <NavLink to="/stake" activeClassName="active">
             <Svg3 />
             &nbsp;&nbsp;&nbsp;Stake
-          </NavLink>
+          </NavLink> */}
           <NavLink to="/transaction" activeClassName="active">
             <Svg4 />
             &nbsp;&nbsp;&nbsp;Transactions

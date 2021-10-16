@@ -32,17 +32,18 @@ const Dashboard = () => {
   const userId = localStorage.getItem('userId');
   console.log('userIDDDD', userId);
   useEffect(() => {
-    // const flow = async () => {
     cryptoWidget();
     cryptoWidget2();
     getUser();
     getGeneralWalletBalance(userId);
     setLoader(true);
-    // };
-    // flow();
-
     // eslint-disable-next-line
   }, []);
+
+  const reload = () => {
+    window.location.reload();
+  };
+
   console.log('GENERAL WALLET OBJ', walletBalance);
   const cryptoWidget = async () => {
     const script = document.createElement('script');
@@ -118,18 +119,26 @@ const Dashboard = () => {
 
         <section className="section-one">
           <div className="boards">
-            <div style={{ cursor: 'wait' }} className="overview">
+            <div
+              onMouseEnter={() => getGeneralWalletBalance(userId)}
+              style={{ cursor: 'wait' }}
+              className="overview"
+            >
               <Svg8 />
-              <h2>{walletBalance.balance}</h2>
+              <h2>{walletBalance.balance ?? '0.0'}</h2>
               <div id="design">
                 <h4>Wallet Balance</h4>
-                <p>+{walletBalance.profit}</p>
+                <p>+{walletBalance.profit ?? '0.0'}</p>
                 <Svg9 />
               </div>
             </div>
-            <div style={{ cursor: 'wait' }} className="overview">
+            <div
+              onMouseEnter={() => getGeneralWalletBalance(userId)}
+              style={{ cursor: 'wait' }}
+              className="overview"
+            >
               <Svg8 />
-              <h2>{walletBalance.profit}</h2>
+              <h2>{walletBalance.profit ?? '0.0'}</h2>
               <div id="design">
                 <h4>Last Profit</h4>
                 {/* <p>+{walletBalance.profit}</p> */}
