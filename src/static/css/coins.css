@@ -49,6 +49,9 @@ section {
   align-items: center;
   justify-content: center;
 }
+.card a:hover {
+  background-color: rgba(51, 51, 51, 0.178);
+}
 .card img {
   width: 40px;
   margin: 1.5rem 0;
@@ -123,7 +126,7 @@ section {
 }
 
 /* card colors */
-.card:nth-child(1) {
+/* .card:nth-child(1) {
   background: linear-gradient(145.64deg, #ffffff 9.67%, #f7931a 71.32%);
 }
 .card:nth-child(2) {
@@ -184,7 +187,7 @@ section {
     #f4dee9 14.48%,
     #f795c4 107.49%
   );
-}
+} */
 
 @media screen and (min-width: 1442px) {
   .section-one,

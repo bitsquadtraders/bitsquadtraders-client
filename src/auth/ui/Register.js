@@ -19,7 +19,7 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [phonenumber, setPhonenumber] = useState('');
   const [password, setPassword] = useState('');
-  const [address, setAddress] = useState('');
+  const [address, setAddress] = useState('null');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
@@ -122,7 +122,7 @@ const Register = () => {
 
               {/* {error && <div className="err-msg">{error}</div>} */}
             </div>
-            <div className="field">
+            {/* <div className="field">
               <label htmlFor="address">Address</label>
               <input
                 name="address"
@@ -131,8 +131,8 @@ const Register = () => {
                 onChange={(e) => setAddress(e.target.value)}
               />
 
-              {/* {error && <div className="err-msg">{error}</div>} */}
-            </div>
+              {error && <div className="err-msg">{error}</div>}
+            </div> */}
           </div>
           <button type="submit" className="btn-default">
             Register
