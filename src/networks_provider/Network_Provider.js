@@ -71,7 +71,7 @@ const NetworkProvider = () => {
   // const EXCHANGE = BASE_URL + 'mycoins/exchange/all';
 
   const EXCHANGE = (coinCryptoAbbrId, amountId) =>
-    `https://obscure-scrubland-80294.herokuapp.com/https://pro-api.coinmarketcap.com/v1/tools/price-conversion?amount=${amountId}&symbol=USD&convert=${coinCryptoAbbrId}&CMC_PRO_API_KEY=f0e1256a-2613-4d60-8df2-afe06fb0fe88`;
+    `https://obscure-scrubland-80294.herokuapp.com/https://pro-api.coinmarketcap.com/v1/tools/price-conversion?amount=${amoutId}&symbol=USD&convert=${coinCryptoAbbrId}&CMC_PRO_API_KEY=f0e1256a-2613-4d60-8df2-afe06fb0fe88`;
 
   return {
     BASE_URL,
